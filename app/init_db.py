@@ -6,7 +6,7 @@ from sqlalchemy.exc import SQLAlchemyError
 # import des modèles
 from config import URL_DB
 from models.db.base import Base
-from models.db import race
+from models.db import race, personnage
 
 engine = None
 session = None
@@ -17,7 +17,8 @@ try:
     engine = create_engine(URL_DB)
     
     # Initialisation de la session
-    session = sessionmaker(bind=engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
     
     # Suppresion des tables
     # Base.metadata.drop_all(bind=engine)
