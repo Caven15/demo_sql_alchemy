@@ -1,4 +1,4 @@
-from models.db.race import Race
+from models.race import Race
 from .db_tools import dbTools
 
 

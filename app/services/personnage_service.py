@@ -1,6 +1,6 @@
 from sqlalchemy import text
 from .db_tools import dbTools
-from models.db.personnage import Personnage
+from models.personnage import Personnage
 
 class PersonnageService(dbTools):
 	"""Classe représentant la logique de gestion des personnages"""
@@ -45,4 +45,3 @@ class PersonnageService(dbTools):
 		)
 		self.commit()
 		print(f"Personnage id : {id_} supprimé !")
-

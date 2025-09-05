@@ -1,6 +1,7 @@
 from .base import Base
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
+from .personnage_quete import personnage_quete
 
 class Personnage(Base):
     __tablename__ = 'personnage'
@@ -11,3 +12,9 @@ class Personnage(Base):
     # FK vers Race
     race_id = Column(Integer, ForeignKey("race.id"))
     race = relationship("Race", back_populates="personnage")
+    
+    # Relation 1:1 avec anneau
+    anneau = relationship("Anneau", back_populates="proprietaire")
+
+    # Relation N:N avec quete
+    quetes = relationship("Quete", secondary=personnage_quete, back_populates="participants")

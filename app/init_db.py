@@ -5,8 +5,8 @@ from sqlalchemy.exc import SQLAlchemyError
 
 # import des modèles
 from config import URL_DB
-from models.db.base import Base
-from models.db import race, personnage
+from models.base import Base
+from models import race, personnage, anneau, quete, personnage_quete
 
 engine = None
 session = None
@@ -21,7 +21,7 @@ try:
     session = Session()
     
     # Suppresion des tables
-    # Base.metadata.drop_all(bind=engine)
+    Base.metadata.drop_all(bind=engine)
     
     # Création des tables si elles n'existent pas
     Base.metadata.create_all(bind=engine)
